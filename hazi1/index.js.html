@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>index.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+index.js</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">{createShoppingList</span><span class="s0">, </span><span class="s1">renderClickAction} from </span><span class="s2">&quot;./listRenderer.js&quot;</span><span class="s0">;</span>
+
+<span class="s0">const </span><span class="s1">item1 = {</span>
+    <span class="s1">name: </span><span class="s2">'Krumpli'</span><span class="s0">,</span>
+    <span class="s1">isBought: </span><span class="s0">false</span>
+<span class="s1">}</span>
+<span class="s0">const </span><span class="s1">item2 = {</span>
+    <span class="s1">name: </span><span class="s2">'Olaj'</span><span class="s0">,</span>
+    <span class="s1">isBought: </span><span class="s0">true</span>
+<span class="s1">}</span>
+<span class="s0">const </span><span class="s1">item3 = {</span>
+    <span class="s1">name: </span><span class="s2">'Tétta'</span><span class="s0">,</span>
+    <span class="s1">isBought: </span><span class="s0">false</span>
+<span class="s1">}</span>
+<span class="s0">const </span><span class="s1">item4 = {</span>
+    <span class="s1">name: </span><span class="s2">'Paprika'</span><span class="s0">,</span>
+    <span class="s1">isBought: </span><span class="s0">true</span>
+<span class="s1">}</span>
+<span class="s0">const </span><span class="s1">item5 = {</span>
+    <span class="s1">name: </span><span class="s2">'Hagyma'</span><span class="s0">,</span>
+    <span class="s1">isBought: </span><span class="s0">false</span>
+<span class="s1">}</span>
+
+<span class="s0">const </span><span class="s1">itemList= [item1</span><span class="s0">,</span><span class="s1">item2</span><span class="s0">,</span><span class="s1">item3</span><span class="s0">,</span><span class="s1">item4</span><span class="s0">,</span><span class="s1">item5]</span><span class="s0">;</span>
+
+<span class="s1">document.addEventListener(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="s0">,</span><span class="s1">createShoppingList(itemList))</span><span class="s0">;</span>
+</pre>
+</body>
+</html>

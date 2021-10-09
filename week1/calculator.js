@@ -1,0 +1,1 @@
+export const calculateSum = (tmb) =>  { return tmb.reduce((acc, item) => acc+item,0)};

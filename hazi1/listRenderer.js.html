@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>listRenderer.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+listRenderer.js</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">{percentage} from </span><span class="s2">&quot;./calculate.js&quot;</span><span class="s0">;</span>
+
+<span class="s0">export const </span><span class="s1">createShoppingList = (list) =&gt; {</span>
+    <span class="s0">const </span><span class="s1">containerDivItem = document.querySelector(</span><span class="s2">&quot;#bevElemek&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">containerDivItem.innerHTML = </span><span class="s2">''</span><span class="s0">;</span>
+    <span class="s1">list.forEach((item</span><span class="s0">, </span><span class="s1">itemIndx) =&gt; {</span>
+        <span class="s1">containerDivItem.innerHTML = containerDivItem.innerHTML + </span><span class="s2">`</span>
+        <span class="s2">&lt;div&gt;&lt;input type=&quot;checkbox&quot; id=&quot;bevListCKB&quot; </span><span class="s1">${item.isBought === </span><span class="s0">true </span><span class="s1">? </span><span class="s2">&quot;checked&quot; </span><span class="s1">: </span><span class="s2">&quot;&quot;</span><span class="s1">}</span><span class="s2">&gt;  
+        </span><span class="s1">${item.isBought === </span><span class="s0">true </span><span class="s1">? </span><span class="s2">&quot;&lt;del&gt;&quot; </span><span class="s1">: </span><span class="s2">&quot;&quot;</span><span class="s1">}</span><span class="s2">&lt;span style=&quot;color: </span><span class="s1">${item.isBought === </span><span class="s0">false </span><span class="s1">? </span><span class="s2">&quot;red&quot; </span><span class="s1">: </span><span class="s2">&quot;black&quot;</span><span class="s1">} </span><span class="s2">&quot;&gt;</span><span class="s1">${item.name}</span><span class="s2">&lt;/span&gt; </span><span class="s1">${item.isBought === </span><span class="s0">true </span><span class="s1">? </span><span class="s2">&quot;&lt;/del&gt;&quot; </span><span class="s1">: </span><span class="s2">&quot;&quot;</span><span class="s1">}</span>
+        <span class="s2">&lt;/div&gt;`</span><span class="s0">;</span>
+    <span class="s1">})</span><span class="s0">;</span>
+    <span class="s1">registerListeneres(list)</span><span class="s0">;</span>
+    <span class="s1">renderPercentage(list)</span><span class="s0">;</span>
+    <span class="s1">renderImage(Number(percentage(list)))</span><span class="s0">;</span>
+
+<span class="s1">}</span>
+
+
+<span class="s0">const </span><span class="s1">registerListeneres = (itemList) =&gt; {</span>
+    <span class="s0">const </span><span class="s1">checkList = document.querySelectorAll(</span><span class="s2">&quot;#bevListCKB&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">checkList.forEach((item) =&gt; item.addEventListener(</span><span class="s2">&quot;click&quot;</span><span class="s0">, </span><span class="s1">event =&gt; renderClickAction(event</span><span class="s0">, </span><span class="s1">itemList)))</span><span class="s0">;</span>
+
+<span class="s1">}</span>
+
+<span class="s0">export const </span><span class="s1">renderClickAction = (event</span><span class="s0">, </span><span class="s1">itemList) =&gt; {</span>
+    <span class="s1">console.log(</span><span class="s2">&quot;Clicked&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s0">const </span><span class="s1">inputs = document.querySelectorAll(</span><span class="s2">&quot;input&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+    <span class="s1">inputs.forEach((element</span><span class="s0">, </span><span class="s1">index) =&gt; {</span>
+        <span class="s1">itemList[index].isBought = element.checked</span><span class="s0">;</span>
+    <span class="s1">})</span><span class="s0">;</span>
+    <span class="s1">createShoppingList(itemList)</span><span class="s0">;</span>
+
+<span class="s1">}</span>
+
+<span class="s0">const </span><span class="s1">renderPercentage = (itemList) =&gt; {</span>
+    <span class="s0">const </span><span class="s1">containerDivItem = document.querySelector(</span><span class="s2">&quot;#summa&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">containerDivItem.innerHTML = </span><span class="s2">`A bevásárlólista &lt;span id=&quot;summa&quot; style=&quot;font-size: </span><span class="s1">${percentage(itemList) / </span><span class="s3">2 </span><span class="s1">&gt; </span><span class="s3">0 </span><span class="s1">? percentage(itemList) / </span><span class="s3">2 </span><span class="s1">: </span><span class="s3">10</span><span class="s1">}</span><span class="s2">px&quot;&gt; </span><span class="s1">${percentage(itemList)} </span><span class="s2">&lt;/span&gt; %-át teljesítetted`</span><span class="s0">;</span>
+    <span class="s0">const </span><span class="s1">summa = document.getElementById(</span><span class="s2">&quot;summa&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">summa.style.color = </span><span class="s2">`</span><span class="s1">${createColor(Number(percentage(itemList)))}</span><span class="s2">`</span><span class="s0">;</span>
+
+
+<span class="s1">}</span>
+
+<span class="s0">const </span><span class="s1">renderImage = (number) =&gt; {</span>
+    <span class="s0">const </span><span class="s1">containerDivItem = document.querySelector(</span><span class="s2">&quot;#pipa&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s0">if </span><span class="s1">(number === </span><span class="s3">100</span><span class="s1">) {</span>
+        <span class="s1">containerDivItem.innerHTML = </span><span class="s2">'&lt;img src=&quot;https://www.tekportal.net/wp-content/uploads/2018/11/tick-off.jpg&quot;&gt;'</span><span class="s0">;</span>
+    <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+        <span class="s1">containerDivItem.innerHTML=</span><span class="s2">''</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+
+<span class="s0">const </span><span class="s1">createColor = (percentage) =&gt; {</span>
+    <span class="s1">console.log(</span><span class="s2">&quot;aaa&quot; </span><span class="s1">+ percentage)</span><span class="s0">;</span>
+    <span class="s0">if </span><span class="s1">(</span><span class="s3">0 </span><span class="s1">&lt;= percentage &amp;&amp; percentage &lt; </span><span class="s3">40</span><span class="s1">) </span><span class="s0">return </span><span class="s2">&quot;red&quot;</span>
+    <span class="s0">if </span><span class="s1">(</span><span class="s3">40 </span><span class="s1">&lt;= percentage &amp;&amp; percentage &lt; </span><span class="s3">80</span><span class="s1">) </span><span class="s0">return </span><span class="s2">&quot;blue&quot;</span>
+    <span class="s0">else return </span><span class="s2">&quot;green&quot;</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>
