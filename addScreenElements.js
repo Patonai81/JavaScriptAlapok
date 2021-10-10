@@ -1,3 +1,5 @@
+import {mostDifficultItem, percentage} from "./arrayFunctions.js";
+
 export const renderPercentage = (itemList) => {
     const containerDivItem = document.querySelector("#summa");
     containerDivItem.innerHTML = `A bevásárlólista <span id="summa" style="font-size: ${percentage(itemList) / 2 > 0 ? percentage(itemList) / 2 : 10}px"> ${percentage(itemList)} </span> %-át teljesítetted`;
@@ -23,3 +25,21 @@ export const renderImage = (number) => {
     }
 
 }
+
+export const renderMostDifficultItem = (list) => {
+
+    const containerDivItem = document.querySelector("#most-difficult");
+    containerDivItem.innerHTML = "";
+    const maxDifficultElement = mostDifficultItem(list);
+    containerDivItem.innerHTML = `<label>A legeslegnehezebb elem: ${maxDifficultElement.name}</label>`;
+
+        setInterval(function () {
+            containerDivItem.style.visibility = (containerDivItem.style.visibility == 'hidden' ? '' : 'hidden');
+        }, 500);
+
+
+
+
+}
+
+

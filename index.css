@@ -1,57 +1,95 @@
 body {
     font-family: 'Roboto', 'sans-serif';
 }
-input{
-   border-radius: 8px;
+
+input {
+    border-radius: 8px;
     background-color: lightgray;
 }
+
 label {
     padding-left: 20px;
 }
-.input-numer{
+
+.input-numer {
     margin-left: 10px;
     width: 50px;
 }
-.redx{
+
+.redx {
     width: 20px;
 }
+
 .redx:hover {
     cursor: pointer;
 }
 
-.save-button{
-    margin: 20px 20px;
+.ordering-buttons {
+    margin-bottom: 30px;
+    width: 20%;
+    height: 50px;
+    font-size: x-large;
+    background-color: aliceblue;
 }
+
+
+#savebutton:hover {
+    cursor: pointer;
+    animation: change2 1s ease-in-out forwards;
+}
+
+@keyframes change2 {
+    100% {
+        color: red;
+        transform: rotateY(1440deg);
+    }
+}
+
 .bevList-ckb {
     margin: 10px 10px;
     padding: 10px;
 }
 
-.new-list-items>{
+.new-list-items > {
     display: flex;
     flex-direction: row;
     width: 100%;
     padding: 10px 10px;
     margin: 10px 10px;
-}
-.new-list-items-span{
-    padding: 10px 10px;
+
 }
 
+.new-list-items {
+    margin-bottom: 20px;
+}
+
+.new-list-items-span {
+    padding: 10px 10px;
+    padding-left: 0;
+}
 
 .done {
-    text-decoration:line-through;
+    text-decoration: line-through;
     color: red;
 }
 
-#bevListCKB:hover{
+#bevListCKB:hover {
     cursor: pointer !important;
 }
-#summa-div{
-    padding: 10px 0px 5px 5px;
+
+#summa-div {
+    padding: 50px 0px 5px 5px;
     width: 100%;
     color: black;
 }
+
 h1:hover {
     cursor: pointer;
 }
+
+#most-difficult {
+    font-size: x-large;
+    color: green;
+    text-align: left;
+}
+

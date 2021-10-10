@@ -1,5 +1,4 @@
-import {renderShoppingList} from "./listRenderer.js";
-import {addArrayElement} from "./arrayFunctions.js";
+import {registerPermanentListeners, renderShoppingList} from "./listRenderer.js";
 
 const item1 = {
     id: 1,
@@ -9,7 +8,7 @@ const item1 = {
 }
 const item2 = {
     id: 2,
-    name: 'Olaj',
+    name: 'HalOlaj',
     isBought: true,
     difficulty: 1
 }
@@ -35,4 +34,5 @@ const item5 = {
 const itemList= [item1,item2,item3,item4,item5];
 
 document.addEventListener("DOMContentLoaded",renderShoppingList(itemList));
-document.getElementById("savebutton").addEventListener("click",(event) => addArrayElement(event,itemList));
+document.addEventListener("DOMContentLoaded",registerPermanentListeners(itemList));
+
