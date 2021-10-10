@@ -1,11 +1,49 @@
 body {
     font-family: 'Roboto', 'sans-serif';
 }
+input{
+   border-radius: 8px;
+    background-color: lightgray;
+}
+label {
+    padding-left: 20px;
+}
+.input-numer{
+    margin-left: 10px;
+    width: 50px;
+}
+.redx{
+    width: 20px;
+}
+.redx:hover {
+    cursor: pointer;
+}
 
-#bevElemek {
+.save-button{
+    margin: 20px 20px;
+}
+.bevList-ckb {
     margin: 10px 10px;
     padding: 10px;
 }
+
+.new-list-items>{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px 10px;
+    margin: 10px 10px;
+}
+.new-list-items-span{
+    padding: 10px 10px;
+}
+
+
+.done {
+    text-decoration:line-through;
+    color: red;
+}
+
 #bevListCKB:hover{
     cursor: pointer !important;
 }
